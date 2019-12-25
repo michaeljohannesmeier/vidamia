@@ -1,0 +1,89 @@
+
+@import '../../../variables.scss';
+
+.headline {
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.marg-t {
+    margin-top: 10px;
+}
+
+.order-wrapper {
+    padding: 20px 0px;
+    .shopping-item{
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        margin-bottom: 5px;
+        .shopping-item-title {
+            margin-right: 40px;
+            width: 200px;
+            min-width: 200px;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .shopping-item-size {
+            margin-right: 10px;
+            width: 80px;
+        }
+        .shopping-item-price {
+            margin-right: 40px;
+            width: 50px;
+        }
+        .shopping-item-amount {
+            margin-right: 20px;
+            width: 80px;
+        }
+    }
+
+    .total {
+        font-weight: bold;
+        margin-top: 15px;
+    }
+}
+
+.user-data-wrapper {
+    padding: 20px 0px;
+    margin-bottom: 5px;
+}
+
+.delivery-info-wrapper {
+    padding: 20px 0px;
+    margin-bottom: 5px;
+    .link-text-delivery {
+        color: $color-2;
+        cursor: pointer;
+    }
+}
+
+.payments-content-wrapper {
+    padding: 20px 0px;
+    .payment-radios {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+    }
+    .payments-wrapper {
+        padding: 30px 0px;
+    }
+
+    .paypal {
+        display: none;
+        #paypal-button-container {
+            max-width: 200px;
+        }
+    }
+    .creditcard {
+        display: none;
+    }
+    .transfer {
+        display: none;
+    }
+}
+
+
+

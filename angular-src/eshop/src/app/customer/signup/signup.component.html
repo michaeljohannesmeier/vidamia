@@ -1,0 +1,87 @@
+
+
+<form class="signup-form" (ngSubmit)="onSingUp()" [formGroup]="signupForm">
+
+  <mat-form-field class="input">
+    <input matInput placeholder="Email" [formControlName]="'email'">
+    <mat-error *ngIf="signupForm.get('email').hasError('email')">
+      Bitte geben Sie eine gültige Email Adress an
+    </mat-error>
+    <mat-error *ngIf="signupForm.get('email').hasError('required')">
+      Bitte geben Sie Ihre Email Adresse an
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="input">
+    <input matInput type="password" placeholder="Passwort" [formControlName]="'password'">
+    <mat-error *ngIf="signupForm.get('password').hasError('required')">
+      Bitte geben Sie Ihre Passwort an
+    </mat-error>
+    <mat-error *ngIf="!signupForm.get('password').hasError('required') && signupForm.get('password').hasError('passWeak')">
+      Das Passwort muss Klein- und Großbuchstaben sowie Zahlen enthalten
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="input">
+    <input matInput type="password" placeholder="Passwort widerholen" [formControlName]="'password2'">
+    <mat-error *ngIf="signupForm.get('password2').hasError('required')">
+      Bitte widerholen Sie Ihre Passwort
+    </mat-error>
+    <mat-error *ngIf="signupForm.get('password2').hasError('noMatch')">
+      Die Passwörter stimmen nicht überein
+    </mat-error>
+  </mat-form-field>
+
+
+  <mat-form-field class="input">
+    <input matInput placeholder="Vorname" [formControlName]="'first_name'">
+    <mat-error *ngIf="signupForm.get('first_name').hasError('required')">
+      Bitte geben Sie Ihren Vornamen ein
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="input">
+    <input matInput placeholder="Nachname" [formControlName]="'last_name'">
+    <mat-error *ngIf="signupForm.get('last_name').hasError('required')">
+      Bitte geben Sie Ihren Nachnamen ein
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="input">
+    <input matInput placeholder="Straße" [formControlName]="'street'">
+    <mat-error *ngIf="signupForm.get('street').hasError('required')">
+      Bitte geben Sie Ihre Straße ein
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="input">
+    <input matInput placeholder="PLZ" [formControlName]="'zipcode'">
+    <mat-error *ngIf="signupForm.get('zipcode').hasError('required')">
+      Bitte geben Sie Ihre Postleitzahl ein
+    </mat-error>
+  </mat-form-field>  
+
+  <mat-form-field class="input">
+    <input matInput placeholder="Ort" [formControlName]="'city'">
+    <mat-error *ngIf="signupForm.get('city').hasError('required')">
+      Bitte geben Sie Ihren Ort ein
+    </mat-error>
+  </mat-form-field>  
+
+  <mat-form-field class="input">
+    <mat-label>Land</mat-label>
+    <mat-select class="selector" [(value)]="selectedCountry" [formControlName]="'country'">
+        <mat-option *ngFor="let country of countries" [value]="country.value">
+          {{country.label}}
+        </mat-option>
+    </mat-select>
+    <mat-error *ngIf="signupForm.get('country').hasError('required')">
+      Bitte wählen Sie Ihre Land aus
+    </mat-error>
+  </mat-form-field>
+
+  <button class="no-hover-bg sandy-button signup-button" [disabled]="!signupForm.valid" type="submit" mat-button>Registrieren</button>
+
+  <button class="no-hover-bg sandy-button" type="button"  routerLink="/passwordreset" mat-button>Passwort vergessen?</button>
+
+</form>

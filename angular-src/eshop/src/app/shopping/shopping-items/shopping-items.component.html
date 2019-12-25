@@ -1,0 +1,34 @@
+
+<div class="no-items-message" *ngIf="shoppingItemKeys?.length === 0">
+    Es befinden sich noch keine Produkte in Ihrem Einkaufswagen.
+</div>
+
+<div class="shopping-items-wrapper">
+    <div *ngIf="shoppingItemKeys?.length > 0">
+    <mat-card (click)="cardClick($event, shoppingItems[key])" class="shopping-item" *ngFor="let key of shoppingItemKeys">
+        <div class="shopping-item-title">{{shoppingItems[key].product.title}}</div>
+        <div class="shopping-item-row">
+            <img class="shopping-item-image" src="{{urlPrefix}}{{shoppingItems[key].product.image_1}}" />
+            <div class="shopping-item-price">{{shoppingItems[key].product.price}}€</div>
+            <div class="shopping-item-size">Größe: {{shoppingItems[key].size}}</div>
+            <div class="shopping-item-amount">
+                <button id="down" *ngIf="shoppingItems[key].amount !== 1" class="no-hover-bg sandy-button item-up-down-button" mat-button (click)="itemDown(shoppingItems[key])">-</button>
+                <div class="amount">{{shoppingItems[key].amount}}</div>
+                <button id="up" *ngIf="shoppingItems[key].product['size_' + shoppingItems[key].size] > shoppingItems[key].amount" class="no-hover-bg sandy-button item-up-down-button" mat-button (click)="itemUp(shoppingItems[key])">+</button>
+                <button id="remove" class="no-hover-bg sandy-button remove-button" mat-button (click)="removeItem(shoppingItems[key])">Entfernen</button>
+            </div>
+        </div>
+        <div class="sub-total" [innerHTML]="getSubTotal(shoppingItems[key])"></div>
+        
+    </mat-card>
+
+    <mat-divider class="divider"></mat-divider>
+
+
+    <div class="total">
+        <div>Total: {{total}}€</div>
+        <button (click)="goToCheckout()" class="no-hover-bg checkout-button sandy-button" mat-button>Bestellen</button>
+    </div>
+    </div>
+</div>
+

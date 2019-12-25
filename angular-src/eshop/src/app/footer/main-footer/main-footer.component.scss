@@ -1,0 +1,26 @@
+
+@import '../../../variables.scss';
+
+.footer-wrapper {
+    margin-top: 70px;
+    height: 100px;
+    background-color: $color-2;
+    display: flex;
+    display: -webkit-flex;
+    flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    -webkit-align-content: center; 
+    -webkit-align-items: center;
+    .footer-link {
+        text-decoration: none;
+        cursor: pointer;
+        color: $color-1;
+    }
+    .marg-r {
+        margin-right: 15px;
+    }
+}
+

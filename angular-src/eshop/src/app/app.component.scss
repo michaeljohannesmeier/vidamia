@@ -1,0 +1,35 @@
+@import '../variables.scss';
+
+.total-content-wrapper {
+    min-height: 100vh;
+    display: flex;
+    display: -webkit-flex;
+    flex-direction: column;
+    justify-content: space-between;
+    .content-wrapper {
+        margin: 0 $global-padding-left-right;
+        @media only screen and (min-width: $change-padding-width) {
+            max-width: $global-max-width;
+            margin: 0 auto;
+        }
+    }
+
+    .overlay {
+        background-color: $color-8;
+        bottom: 0;
+        left: 0;
+        position: fixed;
+        right: 0;
+        top: 0;
+    }
+
+    .loading-spinner {
+        position: fixed;
+        z-index: 1000;
+        width: 100px;
+        height: 100px;
+        top: 30%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}

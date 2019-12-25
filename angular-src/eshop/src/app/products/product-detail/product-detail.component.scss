@@ -1,0 +1,122 @@
+
+
+@import '../../../variables.scss';
+
+$small-picture-size: 50px;
+
+
+
+
+.grid-wrapper {
+    display: grid;
+    grid-template-rows: auto auto auto;
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+        "picture"
+        "ordering"
+        "info";
+    grid-gap: 5vw;
+    @media only screen and (min-width: $bb-500) {
+        margin: 0 auto;
+        grid-template-rows: auto;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: 
+            "picture ordering"
+            "info info";
+    }
+    @media only screen and (min-width: $bb-700) {
+        width: 80%;
+    }
+
+    @media only screen and (min-width: $bb-1000) {
+        width: 100%;
+        grid-template-columns: 1fr 3fr 3fr 1fr;
+        grid-template-areas: 
+            ". picture ordering ."
+            ". info info .";
+    }
+
+    .picture {
+        grid-area: picture;
+        .small-picture {
+            width: $small-picture-size;
+            height: $small-picture-size;
+            object-fit: cover;
+            margin-right: 5px;
+            &.active {
+                border: 1px solid $color-1;
+            }
+        }
+        .big-picture {
+            width: 90vw;
+            height: 90vw;
+            max-width: 300px;
+            max-height: 300px;
+            object-fit: cover;
+            @media only screen and (min-width: $bb-500) {
+                max-width: 40vw;
+                max-height: 40vw;
+            }
+            @media only screen and (min-width: $bb-700) {
+                max-width: 300px;
+                max-height: 300px;
+            }
+        }
+    }
+    .ordering {
+        grid-area: ordering;
+        display: flex;
+        flex-direction: column;
+     
+        .title {
+            font-size: 26px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            @media only screen and (min-width: $bb-700) {
+                margin-top: 50px;
+            }
+        }
+        .price {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            .tax-text {
+                margin-left: 3px;
+                font-size:12px;
+                color: grey;
+            }
+        }
+        .selectsize {
+            width: 30%;
+            margin-right: 20px;
+        }
+        .amount {
+            width: 30%;
+        }
+
+        .addto-cart-wrapper {
+            .addto{
+                margin-right: 20px;
+                margin-bottom: 20px;
+            }
+            .cart {
+            }
+        }
+        .goon {
+            margin-top: 20px;
+        }
+    }
+    .info {
+        grid-area: info;
+        .headline {
+            font-size: 20px;
+            font-weight: bold;
+        }
+    }
+}
+
+.tax-text-explanation {
+    color: gray;
+    font-size: 12px;
+    margin-top: 50px;
+}

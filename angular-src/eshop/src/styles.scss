@@ -1,0 +1,120 @@
+/* You can add global styles to this file, and also import other style files */
+// @import "../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css";
+@import './custom-theme.scss';
+
+@import '~material-design-icons/iconfont/material-icons.css';
+
+@import './variables.scss';
+
+
+@font-face {
+    font-family: 'Dancing Script';
+    src: url('/staticfiles/DancingScript-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'PT Serif Caption';
+    src: url('/staticfiles/PT_Serif-Caption-Web-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Source Sans Pro';
+    src: url('/staticfiles/SourceSansPro-Regular.ttf');
+}
+
+
+body {
+    margin: 0px;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.sandy-button {
+    background-color: $color-1-opac;
+    &:hover {
+        color: $color-4;
+        background-color: $color-1-opac;
+    }
+    &:disabled {
+        background-color: transparent;
+    } 
+}
+
+.snackbar-success {
+    color: $color-2;
+    background-color: $color-9;
+}
+
+.snackbar-failure {
+    color: $color-7;
+    background-color: $color-6;
+}
+
+.mat-simple-snackbar-action .mat-button {
+    color: $color-5;
+}
+
+.mat-progress-spinner circle, .mat-spinner circle {
+    stroke: $color-2;
+}
+
+
+
+
+.dialog-wrapper .mat-dialog-container {
+    padding: 0px;
+}
+
+.no-hover-bg .mat-button-focus-overlay {
+    background-color:transparent !important;
+}
+
+.no-hover-bg .mat-menu-button-focus-overlay {
+    background-color:transparent !important;
+}
+
+.mat-form-field.mat-focused {
+    .mat-form-field-label {
+        color: $color-2;
+    }
+    .mat-form-field-ripple {
+        background-color: $color-2;
+    }
+    .mat-form-field-required-marker {
+        color: $color-2;
+    }
+    .mat-input-element {
+        color: $color-2;
+        caret-color: $color-2; 
+    }
+    .mat-select-arrow {
+        color: $color-2 !important;
+    }
+}
+
+
+.mat-option.mat-selected{
+    color: $color-2 !important;
+}
+.mat-input-container {
+    color: $color-2 !important;
+}
+
+.mat-radio-outer-circle {
+    .mat-radio-checked & {
+          border-color: $color-2 !important;
+        }
+}
+    
+.mat-radio-inner-circle {
+        background-color: $color-2 !important;
+    }
+    
+.mat-radio-ripple .mat-ripple-element {
+        background-color: rgba($color-2, 0.7) !important;
+    }
+
+
+
+
+
+

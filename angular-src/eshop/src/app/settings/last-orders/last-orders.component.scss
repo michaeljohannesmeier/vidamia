@@ -1,0 +1,33 @@
+
+
+
+
+.order-wrapper {
+    margin-bottom: 20px;
+    .marg-t {
+        margin-top:15px;
+    }
+    .headline-sub {
+        font-size: 16px;
+    }
+    .address-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        .flex {
+            display: flex;
+        }
+        .marg-r {
+            display: flex;
+            margin-right: 5px;
+        }
+    }
+    .product{
+        display: flex;
+        flex-wrap: wrap;
+        .product-detail {
+            margin-right: 20px;
+        }
+    }
+}
+
+

@@ -1,0 +1,16 @@
+
+<div class="total-content-wrapper">
+    <div>
+        <app-header></app-header>
+        <div class="content-wrapper">
+            <router-outlet (activate)="onActivate($event)"></router-outlet>
+        </div>
+    </div>
+    <app-main-footer></app-main-footer>
+</div>
+
+<div *ngIf="loading" class="overlay">
+    <div *ngIf="loading" class="loading-spinner" >
+        <mat-spinner></mat-spinner>
+    </div>
+</div>

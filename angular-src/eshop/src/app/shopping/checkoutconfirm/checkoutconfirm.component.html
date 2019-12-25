@@ -1,0 +1,36 @@
+
+
+
+
+   
+   <div *ngIf="lastOrder?.payment_method == 'paypal'" >
+        <div>Vielen Dank</div>
+        <div>Ihre Bestellung sollte in 3-4 Werktagen bei Ihnen eintreffen</div>
+   </div>
+   <div *ngIf="lastOrder?.payment_method == 'transfer'" >
+        <div class="confirm-message-transfer">Vielen Dank für Ihre Bestellung</div>
+        <div class="headline">Überweisung</div>
+        <div class="bank-account-info">
+            <div>Bitte überweisen Sie den Betrag über {{lastOrder?.total}}€ an folgendes Konto:</div>
+            <div>Kontoinhaber: Michael Meier</div>
+            <div>IBAN: DE5400720621520006717276</div>
+            <div>BIC: GENODEF1MTG</div>
+            <div>Bitte geben Sie dabei die folgende Rechnungsnummer an: {{lastOrder?.order_id}}</div>
+        </div>
+    </div>
+    <div class="order-wrapper">
+      <div class="headline">Bestellübersicht</div>
+      <div class="order-id">Bestellnummer: {{lastOrder?.order_id}}</div>
+      <div class="products">Produkte:</div>
+      <div class="shopping-item" *ngFor="let product of products">
+          <div class="shopping-item-title">{{product.title}}</div>
+          <div class="shopping-item-size">Größe: {{product.size}}</div>
+          <div class="shopping-item-amount">Anzahl: {{product.amount}}</div>
+          <div class="sub-sum-item" [innerHTML]="getSubTotal(product)"></div>
+      </div>
+      <div class="total">Total: {{lastOrder?.total}}€</div>
+    </div>
+    <button class="go-to-shop-button no-hover-bg sandy-button" routerLink="/" mat-button>Zum Shop</button>
+
+
+

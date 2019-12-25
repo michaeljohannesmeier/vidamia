@@ -1,0 +1,56 @@
+
+    
+<div class="grid-wrapper">
+
+  <div class="picture">
+      <div class="small-pictures-wrapper">
+          <img class="small-picture" [ngClass]="{'active': selectedPictureNr === 1}" (mouseenter)="selectPicture(1)" (click)="selectPicture(1)" src="{{urlPrefix}}{{product?.image_1}}" />
+          <img class="small-picture" [ngClass]="{'active': selectedPictureNr === 2}" (mouseenter)="selectPicture(2)" (click)="selectPicture(2)" src="{{urlPrefix}}{{product?.image_2}}" />
+          <img class="small-picture" [ngClass]="{'active': selectedPictureNr === 3}" (mouseenter)="selectPicture(3)" (click)="selectPicture(3)" src="{{urlPrefix}}{{product?.image_3}}" />
+      </div>
+      <img class="big-picture" src="{{urlPrefix}}{{selectedPictureUrl}}" />
+  </div>
+
+  <div class="ordering">
+    <div class="title">{{product?.title}}</div>
+    <div class="price">{{product?.price}} € <span class="tax-text">(inkl. MwSt.)<sup>*</sup></span></div>
+    <div *ngIf="productAvailable">
+      <mat-form-field class="selectsize">
+        <mat-label>Größe</mat-label>
+        <mat-select class="selector" [(value)]="selectedSize">
+            <mat-option *ngFor="let size of availableSizes" [value]="size">
+              {{size}}
+            </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field class="amount">
+        <mat-label>Anzahl</mat-label>
+        <mat-select class="selector" [(value)]="selectedAmount">
+            <mat-option *ngFor="let amount of availableAmounts[selectedSize]" [value]="amount">
+              {{amount}}
+            </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    
+    <div class="addto-cart-wrapper">
+      <button *ngIf="productAvailable" class="addto no-hover-bg sandy-button" (click)="addToCart()" mat-button>
+        In den Warenkorb
+      </button>
+      <button class="cart no-hover-bg sandy-button" *ngIf="addedSomething || !productAvailable" routerLink="/shoppingitems" mat-button>
+        Zum Warenkorb
+      </button>
+    </div>
+    <div class="goon" ><button class="no-hover-bg sandy-button" routerLink="/" mat-button>Zum Shop</button></div>
+  </div>
+  <div class="info">
+    <div class="headline">Produktbeschreibung</div>
+    <div [innerHTML]="product?.description"></div>
+    <div class="tax-text-explanation"><sup>*</sup>MwSt. wird nicht ausgewiesen (Kleinunternehmer, § 19 UStG). Im Kaufpreis sind alle Kosten für Sie enthalten.</div>
+  </div>
+
+</div>
+
+
+
+

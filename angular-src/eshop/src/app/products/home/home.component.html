@@ -1,0 +1,61 @@
+
+<div class="home-wrapper">
+  <div class="main-text">
+    <div class="main-text-0">Handgemachte Espadrilles aus Kolumbien</div>
+    <div class="main-text-1">Einzigartiges Design</div>
+  </div>
+
+
+  <div class="grid-wrapper">
+    <div class="header-wrapper">
+      <div [class]="'card' + i" *ngFor="let product of products | slice : 0 : 4; let i = index">
+        <div *ngIf="i === 0"  class="header-image-container">
+          <img *ngIf="i === 0" class="header-image" src="{{urlPrefix}}{{mainPictureUrl}}" />
+          <div *ngIf="i === 0"class="header-image-overlay">
+              <div class="header-image-text">Handgemachte Espadrilles aus Kolumbien</div>
+          </div>
+        </div>
+        <img *ngIf="i > 0" routerLink="/product/{{product.id}}" class="pointer header-image" src="{{urlPrefix}}{{product.image_2}}" />
+      </div>
+    </div>
+  </div>
+
+  <div class="divider-text">
+    Unsere Kollektion
+  </div>
+
+  <div class="products-wrapper">
+      <ng-template ngFor let-product [ngForOf]="products" let-i="index">
+        <div *ngIf="!product.offer" [class]="'card' + i" routerLink="/product/{{product.id}}">
+          <img class="pointer products-image" src="{{urlPrefix}}{{product.image_1}}" />
+          <div class="product-title">{{product.title}}</div>
+          <!-- <div [innerHTML]="product.description"></div> -->
+          <div class="product-price">{{product.price}} €</div>
+        </div>
+      </ng-template>
+  </div>
+
+
+  <div *ngIf="offers" class="divider-text">
+    Derzeit im Angebot
+  </div>
+
+  <div class="offers-wrapper">
+    <ng-template ngFor let-product [ngForOf]="products" let-i="index">
+      <div *ngIf="product.offer" [class]="'card' + i" routerLink="/product/{{product.id}}">
+        <div class="offers-image-container">
+          <img class="pointer offers-image" src="{{urlPrefix}}{{product.image_1}}" />
+          <div class="offers-image-overlay"> 
+              <div class="offer-minus-text">Im Angebot</div>
+              <div class="offer-minus-sub-text">-{{product.offer_minus_percent}}%</div>
+          </div>
+        </div>
+        <div class="offers-title">{{product.title}}</div>
+        <!-- <div [innerHTML]="product.description"></div> -->
+        <div class="offers-price">{{product.price}} €</div>
+      </div>
+    </ng-template>
+  </div>
+
+</div>
+

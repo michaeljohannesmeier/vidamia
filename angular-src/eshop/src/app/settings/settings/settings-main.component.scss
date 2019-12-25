@@ -1,0 +1,40 @@
+
+.settings-form {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    max-width: 100%;
+    margin: 0 auto;
+    .input {
+        margin-top: 15px;
+    }
+
+}
+
+.input-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.input-text {
+    width: 50%;
+    .email-input {
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+}
+
+.input-button {
+    height: 40px;
+    width: 50%;
+    margin-left: 10px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    .mat-icon-small {
+        font-size: 12px;
+        margin-top: 6px;
+        margin-left: -5px;
+    }
+}

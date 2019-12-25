@@ -1,0 +1,38 @@
+
+
+
+<mat-card class="order-wrapper" *ngFor="let order of lastOrders">
+  <div>
+    <span class="headline-sub">Betellungsnummer: </span>
+    <span>{{order.order_id}}</span>
+  </div>
+  <div class="marg-t">
+    <span class="headline-sub">Datum: </span>
+    <span>{{order.created | date: 'd.MM.yyyy' }}</span>
+  </div>
+  <div class="marg-t headline-sub">Lieferadresse:</div>
+  <div class="address-wrapper">
+    <div class="flex">
+      <div class="marg-r">{{order.first_name}} </div>
+      <div class="marg-r">{{order.last_name}}</div>
+    </div>
+    <div class="marg-r">{{order.street}}</div>
+    <div class="flex">
+      <div class="marg-r">{{order.zipcode}} </div>
+      <div>{{order.city}}</div>
+    </div>
+  </div>
+  <div class="marg-t headline-sub">Produkte:</div>
+  <div class="product" *ngFor="let product of order.ordered_products">
+    <div class="product-detail">{{product.title}}</div>
+    <div class="product-detail">Größe: {{product.size}}</div>
+    <div class="product-detail">Anzahl: {{product.amount}}</div>
+    <div class="product-detail">Preis: {{product.price}}€</div>
+    <div *ngIf="product.amount > 1" class="product-detail">Sub-total:{{product.sub_total}}€</div>
+  </div>
+  <div class="marg-t">
+      <span class="headline-sub">Total: </span>
+      <span>{{order.total}}€</span>
+    </div>
+</mat-card>
+

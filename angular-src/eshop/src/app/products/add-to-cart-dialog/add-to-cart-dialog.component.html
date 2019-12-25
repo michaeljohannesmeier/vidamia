@@ -1,0 +1,14 @@
+<h3 mat-dialog-title>{{data.title}}</h3>
+<img class="product-image" src="{{data.imageUrl}}" />
+<div mat-dialog-content>
+    <mat-select [(value)]="selectedSize">
+        <mat-option *ngFor="let size of data.availableSizes" [value]="size">
+          {{size}}
+        </mat-option>
+    </mat-select>
+</div>
+<div>{{data.price}}</div>
+<div mat-dialog-actions>
+  <!-- <button mat-button [mat-dialog-close]="">Zurück</button> -->
+  <button mat-button (click)="addToShoppingCart(selectedSize)">Zum Einkaufswagen</button>
+</div>

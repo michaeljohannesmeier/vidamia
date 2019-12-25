@@ -1,0 +1,15 @@
+<form class="change-email-form" (ngSubmit)="onSubmit()" [formGroup]="changeEmailForm">
+
+  <mat-form-field class="input">
+    <input matInput placeholder="Neue Email Adresse" [formControlName]="'email'">
+    <mat-error *ngIf="changeEmailForm.get('email').hasError('email')">
+      Bitte geben Sie eine gültige Email Adress an
+    </mat-error>
+    <mat-error *ngIf="changeEmailForm.get('email').hasError('required')">
+      Bitte geben Sie Ihre neue Email Adresse an
+    </mat-error>
+  </mat-form-field>
+  
+  <button class="no-hover-bg sandy-button" [disabled]="!changeEmailForm.valid" type="submit" mat-button>Email ändern</button>
+
+</form>

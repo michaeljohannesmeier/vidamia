@@ -1,0 +1,22 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+django = "==1.11"
+gunicorn= "==19.9.0"
+djangorestframework = "*"
+markdown = "*"
+django-filter = "*"
+django-cors-headers = "*"
+pillow = "*"
+django-richtextfield = "*"
+django-ckeditor = "*"
+requests = "*"
+djangorestframework-jwt = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.6"

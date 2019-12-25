@@ -1,0 +1,8 @@
+{% autoescape off %}
+Hi {{ user }},
+
+Willkommen bei VidaMia-Design. 
+
+Bitte klicke auf den folgenden Link um deine Registrierung zu bestätigen
+{{protocol}}://{{ domain }}{{port}}/signup/activate?uidb64={{uid}}&token={{token}}
+{% endautoescape %}

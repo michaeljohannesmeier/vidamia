@@ -1,0 +1,62 @@
+
+
+
+<mat-card>
+    <div class="order-wrapper">
+      <div class="headline">Bestellübersicht</div>
+      <div class="shopping-item" *ngFor="let key of shoppingItemKeys">
+          <div class="shopping-item-title">{{shoppingItems[key].product.title}}</div>
+          <div class="shopping-item-size">Größe: {{shoppingItems[key].size}}</div>
+          <div class="shopping-item-amount">Anzahl: {{shoppingItems[key].amount}}</div>
+          <div class="sub-sum-item" [innerHTML]="getSubTotal(shoppingItems[key])"></div>
+      </div>
+      <div class="total">Total: {{total}}€</div>
+    </div>
+
+    <mat-divider class="divider"></mat-divider>
+
+    <div class="user-data-wrapper">
+      <div class="headline">Adresse</div>
+      <div>{{userData.first_name}} {{userData.last_name}}</div>
+      <div>{{userData.street}}</div>
+      <div>{{userData.zipcode}} {{userData.city}}</div>
+      <button class="marg-t no-hover-bg sandy-button" (click)="goToSettings()" mat-button>Addresse ändern</button>
+    </div>
+
+    <mat-divider class="divider"></mat-divider>
+
+    <div class="delivery-info-wrapper">
+        <div class="headline">Lieferung</div>
+        <div>Die Lieferzeit beträgt 3-4 Werktage</div>
+        <div class="link-text-delivery" routerLink="/delivery">Weitere Fragen zur Lieferung?</div>
+    </div>
+      
+    <mat-divider class="divider"></mat-divider>
+
+
+<div class="payments-content-wrapper">
+    <div class="headline">Zahlungsmethode wählen</div>
+    <mat-radio-group class="payment-radios" [(ngModel)]="selectedPaymentMethod">
+        <mat-radio-button (click)="updatePaymentInfo('paypal')" value="paypal">Paypal</mat-radio-button>
+        <!-- <mat-radio-button (click)="updatePaymentInfo('creditcard')" value="creditcard">Kreditkarte</mat-radio-button> -->
+        <mat-radio-button (click)="updatePaymentInfo('transfer')" value="transfer">Überweisung</mat-radio-button>
+    </mat-radio-group>
+
+    <div class="payments-wrapper">
+        <div #paypal class="paypal">
+            <div>Jetzt Kostenpflichtig bestellen</div>
+            <div id="paypal-button-container"></div>
+        </div>
+        <!-- <div #creditcard class="creditcard">
+            Credit Card:
+        </div> -->
+        <div #transfer class="transfer">
+            <div>Für eine Bestellung per Vorkasse überweisen Sie uns einfach den Betrag über {{total}}€ an unser Bankkonto. Nach Abschluss Ihrer Bestellung sind Ihre Produkte 10 Tage lang für Sie reserviert. Nach Eingang Ihrer Überweisung wird Ihre Bestellung zu Ihnen versandt.</div>
+            <button mat-button class="marg-t no-hover-bg sandy-button" (click)="payPerTransfer()">Bestellung abschließen</button>
+        </div>
+    </div>
+</div>
+
+</mat-card>
+
+

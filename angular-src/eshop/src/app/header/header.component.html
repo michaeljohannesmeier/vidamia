@@ -1,0 +1,55 @@
+
+
+
+
+<div class="header-wrapper">
+    <div class="max-width-wrapper">
+      <div class="menu-wrapper">
+        <div class="title-wrapper">
+          <div routerLink="/" class="title">VidaMia</div>
+          <div routerLink="/" class="sub-title">Design</div>
+        </div>
+        <div class="header-right">
+
+
+          <div *ngIf="loggedIn">
+            <button mat-button class="no-hover-bg" [class.active]="settingsActive" [matMenuTriggerFor]="menu"><mat-icon >person</mat-icon></button>
+            <mat-menu #menu="matMenu">
+              <button routerLink="/settings/main" routerLinkActive="active" mat-menu-item>Settings</button>
+              <button routerLink="/settings/lastorders" routerLinkActive="active" mat-menu-item>Bestellungen</button>
+              <button (click)="logout()" mat-menu-item>Logout</button>
+            </mat-menu>
+            <button mat-button class="no-hover-bg" routerLink="/shoppingitems" routerLinkActive="active" >
+              <mat-icon matBadge="{{shoppingItemsAmount}}" matBadgeColor="warn">shopping_cart</mat-icon>
+            </button>
+          </div>
+  
+
+          <div class="big-not-loggedin" *ngIf="!loggedIn">
+              <button  mat-button class="no-hover-bg" routerLink="/signin" routerLinkActive="active" mat-button>Login</button>
+              <button  mat-button class="no-hover-bg" routerLink="/signup" routerLinkActive="active" mat-button>Registrieren</button>
+              <button  mat-button class="no-hover-bg" mat-button routerLink="/shoppingitems" routerLinkActive="active" >
+                <mat-icon matBadge="{{shoppingItemsAmount}}" matBadgeColor="warn">shopping_cart</mat-icon>
+              </button>
+          </div>
+
+          <div class="small-not-loggedin" *ngIf="!loggedIn">
+              <button mat-button class="no-hover-bg" [class.active]="settingsActive" [matMenuTriggerFor]="menu"><mat-icon >menu</mat-icon></button>
+              <button mat-button  class="no-hover-bg" routerLink="/shoppingitems" routerLinkActive="active" >
+                <mat-icon matBadge="{{shoppingItemsAmount}}" matBadgeColor="warn">shopping_cart</mat-icon>
+              </button>
+              <mat-menu #menu="matMenu">
+                <button mat-menu-item routerLink="/signin" routerLinkActive="active">Login</button>
+                <button mat-menu-item routerLink="/signup" routerLinkActive="active">Registrieren</button>
+              </mat-menu>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+

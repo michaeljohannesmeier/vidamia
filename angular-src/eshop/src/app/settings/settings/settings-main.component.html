@@ -1,0 +1,63 @@
+
+
+<form class="settings-form" (ngSubmit)="onSave()" [formGroup]="settingsForm">
+
+    <div class="input-wrapper wrap-small">
+      <mat-form-field class="input input-text">
+        <input matInput class="email-input" placeholder="Email" [formControlName]="'email'">
+      </mat-form-field>
+      <button class="no-hover-bg sandy-button input-button" type="button" routerLink="/changeemail" routerLinkActive="active" mat-button>
+        <mat-icon class="mat-icon-small">edit</mat-icon>
+        Email ändern
+      </button>
+    </div>
+
+    <div class="input-wrapper wrap-small">
+      <mat-form-field class="input input-text">
+        <input matInput type="password" placeholder="Passwort" [disabled]="true" [value]="'password'">
+      </mat-form-field>
+      <button class="no-hover-bg sandy-button input-button" type="button" routerLink="/changepassword" routerLinkActive="active" mat-button>
+        <mat-icon class="mat-icon-small">edit</mat-icon>
+        Passwort ändern
+      </button>
+    </div>
+  
+    <mat-form-field class="input">
+      <input matInput placeholder="Vorname" [formControlName]="'first_name'">
+      <mat-error *ngIf="settingsForm.get('first_name').hasError('required')">
+        Bitte geben Sie Ihren Vornamen ein
+      </mat-error>
+    </mat-form-field>
+  
+    <mat-form-field class="input">
+      <input matInput placeholder="Nachname" [formControlName]="'last_name'">
+      <mat-error *ngIf="settingsForm.get('last_name').hasError('required')">
+        Bitte geben Sie Ihren Nachnamen ein
+      </mat-error>
+    </mat-form-field>
+  
+    <mat-form-field class="input">
+      <input matInput placeholder="Straße" [formControlName]="'street'">
+      <mat-error *ngIf="settingsForm.get('street').hasError('required')">
+        Bitte geben Sie Ihre Straße ein
+      </mat-error>
+    </mat-form-field>
+  
+    <mat-form-field class="input">
+      <input matInput placeholder="PLZ" [formControlName]="'zipcode'">
+      <mat-error *ngIf="settingsForm.get('zipcode').hasError('required')">
+        Bitte geben Sie Ihre Postleitzahl ein
+      </mat-error>
+    </mat-form-field>  
+  
+    <mat-form-field class="input">
+      <input matInput placeholder="Ort" [formControlName]="'city'">
+      <mat-error *ngIf="settingsForm.get('city').hasError('required')">
+        Bitte geben Sie Ihren Ort ein
+      </mat-error>
+    </mat-form-field>  
+  
+    <button class="no-hover-bg sandy-button" [disabled]="!settingsForm.valid" type="submit" mat-button>Speichern</button>
+  
+  </form>
+  

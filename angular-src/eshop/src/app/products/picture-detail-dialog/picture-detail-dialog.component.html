@@ -1,0 +1,6 @@
+<mat-dialog-content class="picture-detail-wrapper">
+    <img class="small-0" [ngClass]="{'selected': selectedImageId === 1}" (click)="newMain(data.urlPrefix + data.url1, 1)" src="{{data.urlPrefix}}{{data.url1}}" />
+    <img class="small-1" [ngClass]="{'selected': selectedImageId === 2}" (click)="newMain(data.urlPrefix + data.url2, 2)" src="{{data.urlPrefix}}{{data.url2}}" />
+    <img class="small-2" [ngClass]="{'selected': selectedImageId === 3}" *ngIf="data.url3" (click)="newMain(data.urlPrefix + data.url3, 3)" src="{{data.urlPrefix}}{{data.url3}}" />
+    <img class="main" src="{{selectedImageUrl}}" />
+</mat-dialog-content> 

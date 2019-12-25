@@ -1,0 +1,87 @@
+
+@import "../../variables.scss";  
+
+$height-header: 70px;
+
+
+.mat-button {
+    background-color: transparent;
+}
+
+.header-wrapper {
+    background-color:$color-1-opac;
+    height: $height-header;
+    position: relative;
+    @media only screen and (min-width: $bb-500) {
+        margin-bottom: 30px;
+    }
+
+    .max-width-wrapper {
+        max-width: $global-max-width;
+        margin: 0 auto;
+        .menu-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-left: $global-padding-left-right;
+            padding-right: $global-padding-left-right;
+            height: $height-header;
+            .active {
+                color: $color-4;
+            }
+            .title-wrapper {
+                position: absolute;
+                left: 20px;
+                cursor: pointer;
+                @media only screen and (min-width: $bb-500) {
+                    left: 50%;
+                    -webkit-transform: translateX(-50%);
+                }
+                .title {
+                    &:focus {
+                        outline: none;
+                    }
+                    font-family: $font-1;
+                    font-size: 26px;
+                    color: $color-2;
+                    @media only screen and (min-width: $bb-500) {
+                        font-size: 36px;
+                    }
+                }
+                .sub-title {
+                    font-family: $font-2;
+                    font-size: 12px;
+                    transform: translateY(-5px);
+                    font-weight: bold;
+                    color: $color-4;
+                    text-align: right;
+                    &:focus {
+                        outline: none;
+                    }
+                }
+            }
+
+            .header-right {
+                button {
+                    height: $height-header;
+                    &:hover {
+                        color: $color-4;
+                    }
+                }
+                .big-not-loggedin {
+                    display: none;
+                    @media only screen and (min-width: $bb-700) {
+                        display: block;
+                    }
+                }
+                .small-not-loggedin {
+                    display: block;
+                    @media only screen and (min-width: $bb-700) {
+                        display: none;
+                    }
+                }
+     
+            }
+        }
+    }
+}
